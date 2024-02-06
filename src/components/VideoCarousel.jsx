@@ -14,7 +14,7 @@ function SampleNextArrow(props) {
       style={{
         ...style,
         display: "block",
-        background: "black/40",
+        background: "black",
         borderRadius: "40px",
       }}
       onClick={onClick}
