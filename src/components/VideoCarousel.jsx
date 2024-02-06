@@ -6,6 +6,38 @@ import "slick-carousel/slick/slick-theme.css";
 import video from "../video.png";
 import "../index.css";
 
+function SampleNextArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{
+        ...style,
+        display: "block",
+        background: "black",
+        borderRadius: "20px",
+      }}
+      onClick={onClick}
+    />
+  );
+}
+
+function SamplePrevArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{
+        ...style,
+        display: "block",
+        background: "black",
+        borderRadius: "20px",
+      }}
+      onClick={onClick}
+    />
+  );
+}
+
 const VideoCarousel = ({ videos }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
@@ -17,6 +49,8 @@ const VideoCarousel = ({ videos }) => {
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
   };
 
   const openModal = (videoUrl, index) => {
@@ -34,7 +68,7 @@ const VideoCarousel = ({ videos }) => {
         {videos.map((videoUrl, index) => (
           <div key={index} onClick={() => openModal(videoUrl, index)}>
             <img
-              className="cursor-pointer"
+              className="cursor-pointer h-[400px] mt-[80px] font-bold outline-none"
               src={video}
               alt={`video-${index}`}
             />
@@ -71,7 +105,7 @@ const VideoCarousel = ({ videos }) => {
         </div>
         <button
           onClick={closeModal}
-          className="absolute top-3 right-20 text-[30px] text-white"
+          className="absolute top-3 right-20 text-[20px] text-gray-400"
         >
           X
         </button>
