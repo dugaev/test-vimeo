@@ -12,14 +12,13 @@ const VideoCarousel = ({ videos }) => {
 
   const settings = {
     dots: false,
-    arrows: true,
     infinite: true,
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
   };
 
-  const openModal = (index) => {
+  const openModal = (videoUrl, index) => {
     setCurrentVideoIndex(index);
     setIsOpen(true);
   };
@@ -32,7 +31,7 @@ const VideoCarousel = ({ videos }) => {
     <div>
       <Slider {...settings}>
         {videos.map((videoUrl, index) => (
-          <div key={index} onClick={() => openModal(index)}>
+          <div key={index} onClick={() => openModal(videoUrl, index)}>
             <img src={video} alt={`video-${index}`} />
           </div>
         ))}
@@ -55,13 +54,13 @@ const VideoCarousel = ({ videos }) => {
           ></iframe>
         </div>
         <div className="pagination">
-          {videos.map((paginationVideo, index) => (
+          {videos.map((video, index) => (
             <button
               key={index}
               className={`pagination-dot ${
                 index === currentVideoIndex ? "active" : ""
               }`}
-              onClick={() => openModal(index)}
+              onClick={() => setCurrentVideoIndex(index)}
             />
           ))}
         </div>
