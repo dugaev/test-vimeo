@@ -14,7 +14,7 @@ const App = () => {
   ];
 
   return (
-    <div className="p-10 bg-stone-200 h-screen text-center">
+    <div className="p-10  h-screen text-center">
       <h1 className="text-3xl  mb-3">Video Slider</h1>
       <VideoCarousel videos={videos} />
     </div>
