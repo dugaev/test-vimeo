@@ -12,6 +12,7 @@ const VideoCarousel = ({ videos }) => {
 
   const settings = {
     dots: false,
+    arrows: true,
     infinite: true,
     speed: 500,
     slidesToShow: 4,
@@ -32,7 +33,11 @@ const VideoCarousel = ({ videos }) => {
       <Slider {...settings}>
         {videos.map((videoUrl, index) => (
           <div key={index} onClick={() => openModal(videoUrl, index)}>
-            <img src={video} alt={`video-${index}`} />
+            <img
+              className="cursor-pointer"
+              src={video}
+              alt={`video-${index}`}
+            />
           </div>
         ))}
       </Slider>
